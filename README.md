@@ -11,11 +11,11 @@ Bunu SADECE Nvidia desteğine ihtiyacınız varsa yapın (önce bunu yapın)
 yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
 
 ```
-/etc/mkinitcpio.conf düzeneyelim
+/etc/mkinitcpio.conf düzenleyelim
 ```
 MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 ```
-yeni bir initramfs görüntüsü oluştur
+yeni bir initramfs görüntüsü oluşturalım
 ```
 sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
 ```
@@ -23,7 +23,7 @@ NVIDIA Yapılandırması Oluştur
 ```
 echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
 ```
-Doğrula
+Doğrulayalım
 ```
 cat /etc/modprobe.d/nvidia.conf
 ```
