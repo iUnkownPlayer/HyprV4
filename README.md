@@ -48,3 +48,4 @@ noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git
 ```
 
 Veya ekteki "set-hypr" scriptini kullanarak her şeyi kendiniz kurabilirsiniz.
+(Bu fork'da "nwg-look-bin install had failed" hatasını çözülmüştür)
