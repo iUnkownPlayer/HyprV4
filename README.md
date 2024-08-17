@@ -1,29 +1,29 @@
 # HyprV4
-This is V4 of the Hyprland install script
+Bu, Hyprland kurulum betiğinin V4'üdür
 
-It contains a collection of dot config files for hyprland with a simple install script.
-IMPORTANT - This script is meant to run on a clean fresh Arch install on physical hardware
+Hyprland için basit bir kurulum betiğiyle birlikte bir nokta yapılandırma dosyaları koleksiyonu içerir.
+ÖNEMLİ - Bu betik, fiziksel donanımda temiz ve yeni bir Arch kurulumunda çalışmak üzere tasarlanmıştır
 
-You can grab the config files and install packages by hand with the command listed below
+Aşağıda listelenen komutla yapılandırma dosyalarını alabilir ve paketleri elle kurabilirsiniz
 
-Do this ONLY if you need Nvidia support (do this first)
+Bunu SADECE Nvidia desteğine ihtiyacınız varsa yapın (önce bunu yapın)
 ```
 yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
 
 ```
-/etc/mkinitcpio.conf
+/etc/mkinitcpio.conf düzeneyelim
 ```
 MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 ```
-generate a new initramfs image
+yeni bir initramfs görüntüsü oluştur
 ```
 sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
 ```
-Create NVIDIA Configuration
+NVIDIA Yapılandırması Oluştur
 ```
 echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
 ```
-verify
+Doğrula
 ```
 cat /etc/modprobe.d/nvidia.conf
 ```
@@ -31,12 +31,12 @@ shoud return:
 ```
 options nvidia-drm modeset=1
 ```
-now reboot
+şimdi yeniden başlatın
 ```
 reboot
 ```
 
-Now install the below for Hyprland
+Şimdi Hyprland için aşağıdakileri yükleyin
 
 ```
 yay -S hyprland kitty jq mako waybar-hyprland swww swaylock-effects \
@@ -47,4 +47,4 @@ file-roller btop pacman-contrib starship ttf-jetbrains-mono-nerd \
 noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
 ```
 
-Or you can use the attached script "set-hypr" to install everything for you.
+Veya ekteki "set-hypr" scriptini kullanarak her şeyi kendiniz kurabilirsiniz.
